@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/image_main_content_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="600dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
 
@@ -37,7 +37,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/primerTipo_main_content_fragment"
+            android:id="@+id/id_main_content_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/image_main_content_fragment"
@@ -50,7 +50,7 @@
             android:gravity="end"
             android:padding="8dp"
 
-            android:text="@string/primer_tipo"
+            android:text="ID"
             android:textColor="#fff"
 
             android:textSize="25sp" />
@@ -83,12 +83,12 @@
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
 
-                    android:text="Genero:"
+                    android:text="Weight:"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/genero_main_content_fragment"
+                    android:id="@+id/weight_main_content_fragment"
 
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -99,6 +99,39 @@
 
                     android:text="@string/na_value"
                     android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+
+                        android:text="Height:"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/height_main_content_fragment"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_weight="3"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+
+                        android:text="@string/na_value"
+                        android:textSize="18sp" />
 
             </LinearLayout>
 

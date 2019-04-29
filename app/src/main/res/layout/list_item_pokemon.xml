@@ -44,13 +44,13 @@
                 android:paddingRight="8dp"
                 android:layout_marginBottom="4dp"
 
-                android:text="Tipo:"
+                android:text="ID:"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 />
 
             <TextView
-                android:id="@+id/primer_list_item"
+                android:id="@+id/id_list_item"
 
                 android:layout_width="0dp"
                 android:layout_weight="3"
@@ -59,47 +59,12 @@
                 android:paddingRight="8dp"
                 android:layout_marginBottom="4dp"
 
-                android:text="@string/primer_tipo"
+                android:text="id"
                 android:textSize="18sp"
                 />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:layout_marginBottom="4dp"
-
-                android:text="Género:"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/genre_list_item"
-
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:layout_marginBottom="4dp"
-
-                android:text="@string/genero_pokemon"
-                android:textSize="18sp"
-                />
-
-        </LinearLayout>
 
     </LinearLayout>
 

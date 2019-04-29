@@ -9,8 +9,7 @@ data class Pokemon(val id: String="0",
                    val sndtype: String= "N/A",
                    val weight: String= "N/A",
                    val height: String= "N/A",
-                   val url:String= "N/A",
-                   val sprite:String= "N/A"
+                   val url:String= "N/A"
 ):Parcelable{
     constructor(parcel: Parcel) : this(
         id = parcel.readString(),
@@ -19,8 +18,7 @@ data class Pokemon(val id: String="0",
         sndtype = parcel.readString(),
         weight = parcel.readString(),
         height = parcel.readString(),
-        url = parcel.readString(),
-        sprite = parcel.readString())
+        url = parcel.readString())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
@@ -30,7 +28,7 @@ data class Pokemon(val id: String="0",
         parcel.writeString(weight)
         parcel.writeString(height)
         parcel.writeString(url)
-        parcel.writeString(sprite)
+
 
     }
 

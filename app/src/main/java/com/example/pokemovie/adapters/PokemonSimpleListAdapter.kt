@@ -29,7 +29,7 @@ class PokemonSimpleListAdapter(var pokemons:List<Pokemon>, val clickListener: (P
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: Pokemon, clickListener: (Pokemon) -> Unit) = with(itemView){
             name_list_item.text = pokemon.name
-            primer_list_item.text=pokemon.fsttype
+            id_list_item.text=pokemon.id
 
             this.setOnClickListener { clickListener(pokemon) }
         }

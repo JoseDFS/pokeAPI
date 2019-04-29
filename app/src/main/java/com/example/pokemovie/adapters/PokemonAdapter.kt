@@ -19,12 +19,6 @@ class PokemonAdapter(var pokemons: List<Pokemon>, val clickListener: (Pokemon) -
     override fun getItemCount() = pokemons.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        var aux:Int= position+1
-
-        Glide.with(holder.itemView.context)
-            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$aux.png")
-            .into(holder.itemView.pokemon_image_cv)
         holder.bind(pokemons[position], clickListener)
     }
 
@@ -35,13 +29,16 @@ class PokemonAdapter(var pokemons: List<Pokemon>, val clickListener: (Pokemon) -
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(item:Pokemon, clickListener: (Pokemon) -> Unit) = with(itemView){
-            /*Glide.with(itemView.context)
-                .load(item.sprite)
+            var id =item.id
+            Glide.with(itemView.context)
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png")
                 .placeholder(R.drawable.ic_launcher_background)
-                .into(pokemon_image_cv)*/
+                .into(pokemon_image_cv)
 
             pokemon_title_cv.text = item.name
-            pokemon_plot_cv.text= item.fsttype
+            pokemon_id_cv.text = pokemon_id_cv.text.toString() + " " + item.id
+            pokemon_height_cv.text =  pokemon_height_cv.text.toString() + " " + item.height
+            pokemon_weight_cv.text = pokemon_weight_cv.text.toString() + " " + item.weight
 
             this.setOnClickListener { clickListener(item) }
         }

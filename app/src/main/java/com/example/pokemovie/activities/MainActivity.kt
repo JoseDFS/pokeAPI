@@ -19,7 +19,7 @@ import org.json.JSONObject
 import java.io.IOException
 
 class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListener {
-    private lateinit var mainFragment : MainListFragment
+    private lateinit var mainFragment: MainListFragment
     private lateinit var mainContentFragment: MainContentFragment
 
     private var pokemonList = ArrayList<Pokemon>()
@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListe
         super.onSaveInstanceState(outState)
     }
 
-    fun initMainFragment(){
+    fun initMainFragment() {
         mainFragment = MainListFragment.newInstance(pokemonList)
 
-        val resource = if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+        val resource = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
             R.id.main_fragment
         else {
             mainContentFragment = MainContentFragment.newInstance(Pokemon())
@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListe
         changeFragment(resource, mainFragment)
     }
 
-    fun addMovieToList(movie: Pokemon) {
-        pokemonList.add(movie)
+    fun addPokemonToList(pokemon: Pokemon) {
+        pokemonList.add(pokemon)
         mainFragment.updatePokemonsAdapter(pokemonList)
         Log.d("Number", pokemonList.size.toString())
     }
@@ -62,16 +62,18 @@ class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListe
         FetchMovie().execute(movieName)
     }
 
-    override fun managePortraitItemClick(movie: Pokemon) {
+    override fun managePortraitItemClick(pokemon: Pokemon) {
         val pokeBundle = Bundle()
-        pokeBundle.putParcelable("MOVIE", movie)
+        pokeBundle.putParcelable("POKEMON", pokemon)
         startActivity(Intent(this, PokemonViewerActivity::class.java).putExtras(pokeBundle))
     }
 
-    private fun changeFragment(id: Int, frag: Fragment){ supportFragmentManager.beginTransaction().replace(id, frag).commit() }
+    private fun changeFragment(id: Int, frag: Fragment) {
+        supportFragmentManager.beginTransaction().replace(id, frag).commit()
+    }
 
-    override fun manageLandscapeItemClick(movie: Pokemon) {
-        mainContentFragment = MainContentFragment.newInstance(movie)
+    override fun manageLandscapeItemClick(pokemon: Pokemon) {
+        mainContentFragment = MainContentFragment.newInstance(pokemon)
         changeFragment(R.id.land_main_cont_fragment, mainContentFragment)
     }
 
@@ -82,7 +84,7 @@ class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListe
             if (params.isNullOrEmpty()) return ""
 
             val ID = params[0]
-            val pokeUrl = NetworkUtils().buildUrl("pokemon",ID)
+            val pokeUrl = NetworkUtils().buildUrl("pokemon", ID)
 
             return try {
                 NetworkUtils().getResponseFromHttpUrl(pokeUrl)
@@ -91,18 +93,15 @@ class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListe
             }
         }
 
-        override fun onPostExecute(movieInfo: String) {
-            super.onPostExecute(movieInfo)
-            if (!movieInfo.isEmpty()) {
-                val movieJson = JSONObject(movieInfo)
-                if (movieJson != null) {
-                    val movie = Gson().fromJson<Pokemon>(movieInfo, Pokemon::class.java)
-                    addMovieToList(movie)
-                } else {
-                    Toast.makeText(this@MainActivity, "No existe en la base de datos,", Toast.LENGTH_LONG).show()
-                }
-            }else
-            {
+        override fun onPostExecute(pokeInfo: String) {
+            super.onPostExecute(pokeInfo)
+            if (!pokeInfo.isEmpty()) {
+
+                val pokemon = Gson().fromJson<Pokemon>(pokeInfo, Pokemon::class.java)
+                addPokemonToList(pokemon)
+
+
+            } else {
                 Toast.makeText(this@MainActivity, "A ocurrido un error,", Toast.LENGTH_LONG).show()
             }
         }
