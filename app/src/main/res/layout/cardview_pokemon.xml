@@ -12,10 +12,11 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:background="@color/colorPrimaryDark"
             android:id="@+id/pokemon_image_cv"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
              />
 
         <TextView
@@ -51,27 +52,12 @@
                 android:id="@+id/pokemon_id_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="4dp"
                 android:ellipsize="end"
-                android:lines="3"
-                android:text="ID: " />
-            <TextView
-                    android:id="@+id/pokemon_height_cv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:text="Height: " />
-
-            <TextView
-                    android:id="@+id/pokemon_weight_cv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:text="Weight: " />
+                android:lines="2"
+                android:text="ID: "
+                android:textSize="30sp"
+                android:gravity="center"/>
 
         </LinearLayout>
 

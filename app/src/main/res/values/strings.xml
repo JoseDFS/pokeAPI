@@ -9,4 +9,5 @@
     <string name="primer_tipo">Primer Tipo</string>
     <string name="genero_pokemon">genero pokemon</string>
     <string name="na_value">N/A</string>
+    <string name="pokemon_id_et">pokemon id</string>
 </resources>

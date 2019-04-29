@@ -96,7 +96,6 @@ class MainActivity : AppCompatActivity(), MainListFragment.SearchNewPokemonListe
         override fun onPostExecute(pokeInfo: String) {
             super.onPostExecute(pokeInfo)
             if (!pokeInfo.isEmpty()) {
-
                 val pokemon = Gson().fromJson<Pokemon>(pokeInfo, Pokemon::class.java)
                 addPokemonToList(pokemon)
 

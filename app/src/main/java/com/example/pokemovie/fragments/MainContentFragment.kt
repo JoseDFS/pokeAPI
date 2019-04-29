@@ -52,6 +52,7 @@ class MainContentFragment : Fragment() {
         view.pokemon_name_main_content_fragment.text = pokemon.name
         view.height_main_content_fragment.text = pokemon.height
         view.weight_main_content_fragment.text = pokemon.weight
+        //view.types_main_content_fragment.text = pokemon.types
         Glide.with(view)
             .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png")
             .placeholder(R.drawable.ic_launcher_background)

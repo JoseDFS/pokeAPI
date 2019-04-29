@@ -37,8 +37,6 @@ class PokemonAdapter(var pokemons: List<Pokemon>, val clickListener: (Pokemon) -
 
             pokemon_title_cv.text = item.name
             pokemon_id_cv.text = pokemon_id_cv.text.toString() + " " + item.id
-            pokemon_height_cv.text =  pokemon_height_cv.text.toString() + " " + item.height
-            pokemon_weight_cv.text = pokemon_weight_cv.text.toString() + " " + item.weight
 
             this.setOnClickListener { clickListener(item) }
         }

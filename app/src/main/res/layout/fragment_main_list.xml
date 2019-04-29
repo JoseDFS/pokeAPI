@@ -20,7 +20,7 @@
         <EditText
                 android:id="@+id/pokemon_name_et"
                 android:layout_width="0dp"
-                android:hint="@string/pokemon_name"
+                android:hint="@string/pokemon_id_et"
                 android:layout_height="wrap_content"
                 android:layout_weight="3" />
 

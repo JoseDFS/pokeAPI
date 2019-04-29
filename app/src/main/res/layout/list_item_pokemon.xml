@@ -58,9 +58,9 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:layout_marginBottom="4dp"
-
                 android:text="id"
                 android:textSize="18sp"
+
                 />
 
         </LinearLayout>
